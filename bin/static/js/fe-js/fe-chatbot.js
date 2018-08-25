@@ -20,8 +20,12 @@ var vue_det = new Vue({
 
 		sendMessage : function() {
 			var text = document.getElementById("btn-input").value;
-					var currentDate = new Date();
-					var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
+			//Not sending an empty message to the backEnd
+			if (!text)
+				return;
+			var currentDate = new Date();
+			var currentTime = currentDate.getHours() + ":"
+					+ currentDate.getMinutes();
 			var messageVar = {
 				message : text,
 				time : currentTime,
