@@ -1,4 +1,4 @@
-package com.chatbot.services;
+package com.application.services;
 
 import java.beans.Transient;
 import java.util.List;
@@ -7,21 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.chatbot.model.Person;
-import com.chatbot.repositories.PersonDAL;
-import com.chatbot.repositories.PersonRepository;
+import com.application.model.Person;
+import com.application.repositories.PersonDAL;
+import com.application.repositories.PersonRepository;
 
 @Service
 public class PersonServiceImpl implements PersonService {
-
-	private final PersonRepository personRepository;
-	private final PersonDAL personDAL;
-
 	@Autowired
-	public PersonServiceImpl(PersonRepository personRepository, PersonDAL personDAL) {
-		this.personRepository = personRepository;
-		this.personDAL = personDAL;
-	}
+	private PersonRepository personRepository;
+//	private final PersonDAL personDAL;
+//
+//	@Autowired
+//	public PersonServiceImpl(PersonRepository personRepository, PersonDAL personDAL) {
+//		this.personRepository = personRepository;
+//		this.personDAL = personDAL;
+//	}
 
 	@Override
 	public Person createPerson(Person person) {
@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person getPerson(Long id) {
-		return personRepository.findOne(id);
+		return personRepository.findById(id);
 	}
 
 	@Override
@@ -64,14 +64,15 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	@Transient
 	public List<Person> fuzzySearchPerson(String term) {
-		return personDAL.fuzzySearchPerson(term);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	@Transient
 	public List<Person> wildCardSearchPerson(String term) {
-		return personDAL.wildCardSearchPerson(term);
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

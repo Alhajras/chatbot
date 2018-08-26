@@ -1,8 +1,8 @@
-package com.chatbot.repositories;
+package com.application.repositories;
 
 import java.util.List;
 
-import com.chatbot.model.Person;
+import com.application.model.Person;
 
 public interface PersonDAL {
 	List<Person> fuzzySearchPerson(String term);

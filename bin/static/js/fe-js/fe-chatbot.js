@@ -20,7 +20,7 @@ var vue_det = new Vue({
 
 		sendMessage : function() {
 			var text = document.getElementById("btn-input").value;
-			//Not sending an empty message to the backEnd
+			// Not sending an empty message to the backEnd
 			if (!text)
 				return;
 			var currentDate = new Date();
@@ -33,6 +33,24 @@ var vue_det = new Vue({
 			};
 			this.robotMessages.push(messageVar);
 			document.getElementById("btn-input").value = '';
+
+			$.ajax({
+				type : "GET",
+				url : "/search",
+				// data : {
+				// region : re,
+				// stId : state_id
+				//				},
+				success : function(e) {
+					alert(JSON.stringify(e));
+				},
+				error : function() {
+					alert('Error while request..');
+				}
+			});
+
+			
+
 		},
 
 	}

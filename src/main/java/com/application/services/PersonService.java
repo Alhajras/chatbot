@@ -1,8 +1,8 @@
-package com.chatbot.services;
+package com.application.services;
 
 import java.util.List;
 
-import com.chatbot.model.Person;
+import com.application.model.Person;
 
 public interface PersonService {
 	Person createPerson(Person person);
