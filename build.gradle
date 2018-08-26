@@ -48,8 +48,14 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    	compile('org.springframework.boot:spring-boot-starter-web','org.apache.tomcat.embed:tomcat-embed-jasper'
+    compile 'org.flywaydb:flyway-core:4.2.0'
+    compile('org.springframework.boot:spring-boot-starter-web','org.apache.tomcat.embed:tomcat-embed-jasper'
 	,'javax.servlet:jstl')
+	compile('org.hibernate:hibernate-search-orm:5.6.1.Final','org.hibernate:hibernate-entitymanager:5.2.3.Final')
+	compile('org.hibernate:hibernate-core:5.2.10.Final','org.hibernate:hibernate-entitymanager')
+    compile('javax.xml.bind:jaxb-api:2.3.0')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('mysql:mysql-connector-java:8.0.12')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
