@@ -7,6 +7,12 @@
 	rel="stylesheet" />
 <link type="text/css" href="css/fe-login.css" rel="stylesheet" />
 <script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript"
+	src="js/elasticsearch-js/elasticsearch.js"></script>
+<script type="text/javascript"
+	src="js/elasticsearch-js/elasticsearch.jquery.js"></script>
+
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -26,7 +32,7 @@
 						<div class="panel-heading top-bar">
 							<div class="col-md-8 col-xs-8">
 								<h3 class="panel-title">
-									<span class="glyphicon glyphicon-comment"></span> Chat - Miguel
+									<span class="glyphicon glyphicon-comment"></span> HAW-Chatbot
 								</h3>
 							</div>
 							<div class="col-md-4 col-xs-4" style="text-align: right;">
@@ -49,15 +55,15 @@
 									</div>
 									<div class="col-md-2 col-xs-2 avatar">
 										<img style="border-radius: 50%;"
-											src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+											src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
+											class=" img-responsive ">
 									</div>
 								</div>
 								<div v-if="email.robotResponse"
 									class="row msg_container base_receive">
 									<div class="col-md-2 col-xs-2 avatar">
 										<img style="border-radius: 50%;"
-											src="css/images/chatbot-icon.jpg"
-											class=" img-responsive ">
+											src="css/images/chatbot-icon.jpg" class=" img-responsive ">
 									</div>
 									<div class="col-md-10 col-xs-10">
 										<div class="messages msg_receive">
@@ -87,8 +93,8 @@
 
 		<div v-if="iconMode" v-on:click="changeMode"
 			style="height: 100px; width: 100px; position: fixed; bottom: 0; right: 0;">
-			<img src="css/images/chatbot-icon.jpg" alt="Italian Trulli"
-				width="100" height="100">
+			<a href="#"><img src="css/images/chatbot-icon.jpg"
+				alt="Italian Trulli" width="100" height="100"></a>
 		</div>
 	</div>
 	<!-- 	<div v-if="!iconMode"> -->

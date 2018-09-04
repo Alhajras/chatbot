@@ -1,4 +1,6 @@
-/controllers/
 /static/
-/db/
+/Library.class
+/LibraryTest.class
 /com/
+/controllers/
+/templates/
