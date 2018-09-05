@@ -14,8 +14,7 @@ public class SearchController {
 
 	@GetMapping("/search")
 	public String search() {
-		
-		System.err.println(articleServiceImpl.getArticle((long) 1));
+		System.err.println(articleServiceImpl.getArticle((long) 1).getTitle());
 		return "widget";
 	}
 

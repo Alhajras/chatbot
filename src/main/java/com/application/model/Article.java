@@ -16,7 +16,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 public class Article {
 
