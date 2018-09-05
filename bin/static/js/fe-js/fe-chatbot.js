@@ -34,21 +34,17 @@ var vue_det = new Vue({
 			this.robotMessages.push(messageVar);
 			document.getElementById("btn-input").value = '';
 
-			// var obj = '{' + '"name" : "Raj",' + '"age" : 32,'
-			// + '"married" : false' + '}';
-			// console.log(obj);
-			// $.ajax({
-			// type : "GET",
-			// url : "localhost:9200/articles/_search",
-			// contentType : "application/json",
-			// data : JSON.parse(obj),
-			// success : function(e) {
-			// console.log(e);
-			// },
-			// error : function() {
-			//
-			// }
-			// });
+			$.ajax({
+				type : "GET",
+				url : "/search",
+				contentType : "application/json",
+				success : function(e) {
+					console.log(e);
+				},
+				error : function() {
+
+				}
+			});
 
 		},
 
@@ -92,51 +88,3 @@ $(document).on('click', '.icon_close', function(e) {
 	// $(this).parent().parent().parent().parent().remove();
 	$("#chat_window_1").remove();
 });
-
-function createCORSRequest(method, url) {
-	var xhr = new XMLHttpRequest();
-	if ("withCredentials" in xhr) {
-
-		// Check if the XMLHttpRequest object has a "withCredentials" property.
-		// "withCredentials" only exists on XMLHTTPRequest2 objects.
-		xhr.open(method, url, true);
-
-	} else if (typeof XDomainRequest != "undefined") {
-
-		// Otherwise, check if XDomainRequest.
-		// XDomainRequest only exists in IE, and is IE's way of making CORS
-		// requests.
-		xhr = new XDomainRequest();
-		xhr.open(method, url);
-
-	} else {
-
-		// Otherwise, CORS is not supported by the browser.
-		xhr = null;
-
-	}
-
-	return xhr;
-}
-
-//var url = 'http://localhost:9200/articles/_search';
-//var xhr = createCORSRequest('GET', url);
-//xhr.send();
-//if (!xhr) {
-//	throw new Error('CORS not supported');
-//}
-
-// var elasticsearch = 'js/elasticsearch-js/elasticsearch.js';
-// require([ elasticsearch ], function(fooModule) {
-// var client = new elasticsearch.Client({
-// host : 'localhost:9200',
-// log : 'trace'
-// });
-// client.search({
-// q : 'chatcot'
-// }).then(function(body) {
-// var hits = body.hits.hits;
-// }, function(error) {
-// console.trace(error.message);
-// });
-// })

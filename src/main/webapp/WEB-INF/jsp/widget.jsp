@@ -22,7 +22,10 @@
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
-
+<!-- this is for a demo only -->
+	<!-- 	<iframe src="https://www.haw-hamburg.de/startseite.html" -->
+	<!-- 		style="width: 1800px; height: 1500px;"></iframe> -->
+	<!-- 		end of the demo -->
 	<div id="chatbot-div">
 		<div v-if="!iconMode">
 			<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1"

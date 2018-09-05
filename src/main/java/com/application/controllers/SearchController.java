@@ -4,21 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.application.model.Person;
-import com.application.services.PersonServiceImpl;
+import com.application.services.ArticleServiceImpl;
 
 @Controller
 public class SearchController {
 
 	@Autowired
-	private PersonServiceImpl PersonServiceImpl;
+	private ArticleServiceImpl articleServiceImpl;
 
 	@GetMapping("/search")
 	public String search() {
-//		Person person = personService.getPerson((long) 1);
-		Person person2 = new Person((long) 2, "mo");
-		PersonServiceImpl.createPerson(person2);
-//		System.err.println(person.toString());
+		
+		System.err.println(articleServiceImpl.getArticle((long) 1));
 		return "widget";
 	}
 
