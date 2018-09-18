@@ -22,9 +22,6 @@ public class Filterword {
 
 	private String word;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	private Article article;
-
 	public Filterword() {
 
 	}
