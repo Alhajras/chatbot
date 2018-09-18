@@ -29,6 +29,8 @@ public class Article {
 
 	private String link;
 
+	private boolean active;
+
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Keyword> keywords;
 

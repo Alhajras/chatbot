@@ -1,3 +1,6 @@
-/com/
-/db/
 /static/
+/Library.class
+/com/
+/controllers/
+/templates/
+/db/
