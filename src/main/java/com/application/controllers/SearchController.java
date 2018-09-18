@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,9 @@ public class SearchController {
 
 	@Autowired
 	private ArticleServiceImpl articleServiceImpl;
+
+	@Value("${security.key}")
+	private String key;
 
 	@GetMapping("/search/{text}")
 	public String search(@PathVariable String text) {

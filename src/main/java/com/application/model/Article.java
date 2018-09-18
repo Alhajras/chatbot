@@ -30,6 +30,8 @@ public class Article {
 	private String link;
 
 	private boolean active;
+	
+	private long views;
 
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Keyword> keywords;
