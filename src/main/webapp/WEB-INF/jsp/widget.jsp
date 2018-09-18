@@ -22,7 +22,7 @@
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
-<!-- this is for a demo only -->
+	<!-- this is for a demo only -->
 	<!-- 	<iframe src="https://www.haw-hamburg.de/startseite.html" -->
 	<!-- 		style="width: 1800px; height: 1500px;"></iframe> -->
 	<!-- 		end of the demo -->
@@ -58,7 +58,7 @@
 									</div>
 									<div class="col-md-2 col-xs-2 avatar">
 										<img style="border-radius: 50%;"
-											src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
+											src="css/images/unknown-user.png"
 											class=" img-responsive ">
 									</div>
 								</div>
@@ -100,9 +100,6 @@
 				alt="Italian Trulli" width="100" height="100"></a>
 		</div>
 	</div>
-	<!-- 	<div v-if="!iconMode"> -->
-
-	<!-- 	</div> -->
 </body>
 <script type="text/javascript" src="js/fe-js/fe-chatbot.js"></script>
 </html>
