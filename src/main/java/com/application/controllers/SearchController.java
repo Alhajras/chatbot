@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.application.exceptions.authorityException;
 import com.application.model.Article;
 import com.application.services.ArticleServiceImpl;
 import com.google.common.collect.HashBiMap;
@@ -23,9 +24,15 @@ public class SearchController {
 	@Value("${security.key}")
 	private String key;
 
-	@GetMapping("/search/{text}")
-	public String search(@PathVariable String text) {
+	@GetMapping("{authinticationKey}/search/{text}")
+	public String search(@PathVariable String text, @PathVariable String authinticationKey) throws authorityException {
+
+	
+		if (!authinticationKey.equals(key)) {
+			throw new authorityException("Security exception, the key is invalid!");
+		}
 		HashMap<Integer, Article> articlesPoints = new HashMap<Integer, Article>();
+
 //
 //		List<Article> articles = articleServiceImpl.getAllArticles();
 //		int score = 0;

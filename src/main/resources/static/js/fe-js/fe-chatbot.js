@@ -36,7 +36,7 @@ var vue_det = new Vue({
 
 			$.ajax({
 				type : "GET",
-				url : "/search/" + text,
+				url : "3W6bt8YUBbNmMS0IfnthtAHYt9JuVK/search/" + text,
 				contentType : "application/json",
 				success : function(e) {
 					console.log(e);
