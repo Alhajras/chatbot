@@ -35,6 +35,9 @@ public class Article {
 
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Keyword> keywords;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<Filterword> filterwords;
 
 	public Article() {
 		// TODO Auto-generated constructor stub
