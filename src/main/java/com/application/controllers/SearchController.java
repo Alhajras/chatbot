@@ -1,3 +1,9 @@
+/**
+ * author: Alhajras Algdairy
+ * 
+ * Controller for serving the request of the user in the chatbot
+ */
+
 package com.application.controllers;
 
 import java.util.ArrayList;
@@ -21,13 +27,13 @@ public class SearchController {
 	@Autowired
 	private ArticleServiceImpl articleServiceImpl;
 
+//	Key to use for the API
 	@Value("${security.key}")
 	private String key;
 
 	@GetMapping("{authinticationKey}/search/{text}")
 	public String search(@PathVariable String text, @PathVariable String authinticationKey) throws authorityException {
 
-	
 		if (!authinticationKey.equals(key)) {
 			throw new authorityException("Security exception, the key is invalid!");
 		}
