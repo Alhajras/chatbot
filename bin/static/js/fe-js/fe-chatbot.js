@@ -2,7 +2,7 @@ var vue_det = new Vue({
 	el : '#chatbot-div',
 	data : {
 		robotMessages : [ {
-			message : 'Welcome to our website how can I help?',
+			message : 'Welcome to our website, how can I help?',
 			time : '',
 			robotResponse : true
 		} ],
@@ -19,6 +19,7 @@ var vue_det = new Vue({
 		},
 
 		sendMessage : function() {
+			var self = this;
 			var text = document.getElementById("btn-input").value;
 			// Not sending an empty message to the backEnd
 			if (!text)
@@ -33,12 +34,20 @@ var vue_det = new Vue({
 			};
 			this.robotMessages.push(messageVar);
 			document.getElementById("btn-input").value = '';
-
 			$.ajax({
 				type : "GET",
 				url : "3W6bt8YUBbNmMS0IfnthtAHYt9JuVK/search/" + text,
 				contentType : "application/json",
 				success : function(e) {
+					var currentDate = new Date();
+					var currentTime = currentDate.getHours() + ":"
+							+ currentDate.getMinutes();
+					var robotResponse = {
+						message : e,
+						time : currentTime,
+						robotResponse : true
+					};
+					self.robotMessages.push(robotResponse);
 					console.log(e);
 				},
 				error : function() {

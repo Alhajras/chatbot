@@ -96,7 +96,7 @@
 
 		<div v-if="iconMode" v-on:click="changeMode"
 			style="height: 100px; width: 100px; position: fixed; bottom: 0; right: 0;">
-			<a href="#"><img src="css/images/chatbot-icon.jpg"
+			<a href="#"><img src="css/images/chatbot-icon2.jpg"
 				alt="Italian Trulli" width="100" height="100"></a>
 		</div>
 	</div>
