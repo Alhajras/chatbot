@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link type="text/css"
@@ -58,8 +58,7 @@
 									</div>
 									<div class="col-md-2 col-xs-2 avatar">
 										<img style="border-radius: 50%;"
-											src="css/images/unknown-user.png"
-											class=" img-responsive ">
+											src="css/images/unknown-user.png" class=" img-responsive ">
 									</div>
 								</div>
 								<div v-if="email.robotResponse"
@@ -81,7 +80,7 @@
 							<div class="input-group">
 								<input v-on:keyup.enter="sendMessage" id="btn-input" type="text"
 									class="form-control input-sm chat_input"
-									placeholder="Write your message here..." /> <span
+									th:placeholder="${type.message}" /> <span
 									class="input-group-btn">
 									<button class="btn btn-primary btn-sm" id="btn-chat"
 										v-on:click="sendMessage">Send</button>
