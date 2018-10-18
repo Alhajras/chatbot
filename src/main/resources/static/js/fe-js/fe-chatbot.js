@@ -26,10 +26,10 @@ var vue_det = new Vue({
 			if (!text)
 				return;
 
-			var patt1 = /(hello|hi|moin)/g;
-			var result = text.toLowerCase().match(patt1);
-			result += ', ';
-				
+			// var patt1 = /(hello|hi|moin)/g;
+			// var result = text.toLowerCase().match(patt1);
+			// result += ', ';
+
 			var currentDate = new Date();
 			var currentTime = currentDate.getHours() + ":"
 					+ currentDate.getMinutes();
@@ -49,31 +49,29 @@ var vue_det = new Vue({
 			self.robotMessages.push(robotResponse);
 			$("#chat_window").scrollTop($("#chat_window")[0].scrollHeight);
 			document.getElementById("btn-input").value = '';
-			$
-					.ajax({
-						type : "GET",
-						url : "3W6bt8YUBbNmMS0IfnthtAHYt9JuVK/search/" + text,
-						contentType : "application/json",
-						success : function(e) {
-							self.robotMessages.splice(-1, 1)
-							var currentDate = new Date();
-							var currentTime = currentDate.getHours() + ":"
-									+ currentDate.getMinutes();
-							var robotResponse = {
-								message : result
-										+ 'Please, take a look at this link: ',
-								time : currentTime,
-								robotResponse : true,
-								url : e,
-							};
-							self.robotMessages.push(robotResponse);
-							$("#chat_window").scrollTop(
-									$("#chat_window")[0].scrollHeight);
-						},
-						error : function() {
+			$.ajax({
+				type : "GET",
+				url : "3W6bt8YUBbNmMS0IfnthtAHYt9JuVK/search/" + text,
+				contentType : "application/json",
+				success : function(e) {
+					self.robotMessages.splice(-1, 1)
+					var currentDate = new Date();
+					var currentTime = currentDate.getHours() + ":"
+							+ currentDate.getMinutes();
+					var robotResponse = {
+						message : 'Please, take a look at this link: ',
+						time : currentTime,
+						robotResponse : true,
+						url : e,
+					};
+					self.robotMessages.push(robotResponse);
+					$("#chat_window").scrollTop(
+							$("#chat_window")[0].scrollHeight);
+				},
+				error : function() {
 
-						}
-					});
+				}
+			});
 
 		},
 
