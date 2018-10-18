@@ -46,7 +46,7 @@
 									data-id="chat_window_1"></span></a>
 							</div>
 						</div>
-						<div class="panel-body msg_container_base">
+						<div id = "chat_window" class="panel-body msg_container_base">
 							<div v-for="(email, index) in robotMessages">
 								<div v-if="!email.robotResponse"
 									class="row msg_container base_sent">
@@ -58,10 +58,12 @@
 									</div>
 									<div class="col-md-2 col-xs-2 avatar">
 										<img style="border-radius: 50%;"
-											src="css/images/unknown-user.png"
-											class=" img-responsive ">
+											src="css/images/unknown-user.png" class=" img-responsive ">
 									</div>
 								</div>
+
+								<div id="robotIsWriting"></div>
+
 								<div v-if="email.robotResponse"
 									class="row msg_container base_receive">
 									<div class="col-md-2 col-xs-2 avatar">
@@ -70,8 +72,8 @@
 									</div>
 									<div class="col-md-10 col-xs-10">
 										<div class="messages msg_receive">
-											<a>{{email.message}}</a>
-											<a  v-bind:href="email.url">HAW website</a>
+											<a>{{email.message}}</a> <a v-if="email.url != '' "
+												v-bind:href="email.url">{{email.url}}</a>
 											<time datetime="2009-11-13T20:00">{{email.time}}</time>
 										</div>
 									</div>

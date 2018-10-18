@@ -4,7 +4,8 @@ var vue_det = new Vue({
 		robotMessages : [ {
 			message : 'Welcome to our website, how can I help?',
 			time : '',
-			robotResponse : true
+			robotResponse : true,
+			url : '',
 		} ],
 		iconMode : true
 	},
@@ -33,12 +34,22 @@ var vue_det = new Vue({
 				robotResponse : false
 			};
 			this.robotMessages.push(messageVar);
+
+			var robotResponse = {
+				message : 'Typing ...',
+				time : currentTime,
+				robotResponse : true,
+				url : '',
+			};
+			self.robotMessages.push(robotResponse);
+			$("#chat_window").scrollTop($("#chat_window")[0].scrollHeight);
 			document.getElementById("btn-input").value = '';
 			$.ajax({
 				type : "GET",
 				url : "3W6bt8YUBbNmMS0IfnthtAHYt9JuVK/search/" + text,
 				contentType : "application/json",
 				success : function(e) {
+					self.robotMessages.splice(-1, 1)
 					var currentDate = new Date();
 					var currentTime = currentDate.getHours() + ":"
 							+ currentDate.getMinutes();
@@ -49,6 +60,8 @@ var vue_det = new Vue({
 						url : e,
 					};
 					self.robotMessages.push(robotResponse);
+					$("#chat_window").scrollTop(
+							$("#chat_window")[0].scrollHeight);
 				},
 				error : function() {
 
