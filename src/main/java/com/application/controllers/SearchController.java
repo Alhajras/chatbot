@@ -6,6 +6,9 @@
 
 package com.application.controllers;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -36,7 +39,7 @@ public class SearchController {
 
 	@GetMapping("{authinticationKey}/search/{text}")
 	public String search(@PathVariable String text, @PathVariable String authinticationKey)
-			throws authorityException, IOException {
+			throws authorityException, IOException, JSONException {
 		String URL = "https://www.haw-hamburg.de/";
 		StringBuffer content = new StringBuffer();
 		if (!authinticationKey.equals(key)) {
@@ -55,8 +58,17 @@ public class SearchController {
 				content.append(inputLine);
 			}
 			in.close();
-			if (content.toString().contains("url"))
-				URL = content.toString().split("\"url\":\"")[1].split("\\\",\"data\"")[0];
+			if (content.toString().contains("url")) {
+				JSONObject obj = new JSONObject(content.toString());
+				String objString = obj.getJSONObject("hits").getJSONArray("hits").get(0).toString();
+				obj = new JSONObject(objString);
+				obj = new JSONObject(obj.getJSONObject("_source").toString());
+				System.out.println(obj);
+				URL = obj.toString().split("data\":\"")[1].split("url\":\"")[1].replaceAll("\\\\", "").replaceAll("}",
+						"");
+			}
+
+//						.split("\"url\":\"")[1].split("\\\",\"data\"")[0];
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
