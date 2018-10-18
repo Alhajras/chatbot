@@ -70,7 +70,8 @@
 									</div>
 									<div class="col-md-10 col-xs-10">
 										<div class="messages msg_receive">
-											<p>{{email.message}}</p>
+											<a>{{email.message}}</a>
+											<a  v-bind:href="email.url">HAW website</a>
 											<time datetime="2009-11-13T20:00">{{email.time}}</time>
 										</div>
 									</div>

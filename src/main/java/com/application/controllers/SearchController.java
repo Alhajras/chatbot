@@ -27,9 +27,6 @@ import com.application.services.ArticleServiceImpl;
 @RestController
 public class SearchController {
 
-	@Autowired
-	private ArticleServiceImpl articleServiceImpl;
-
 //	Key to use for the API
 	@Value("${security.key}")
 	private String key;
@@ -45,9 +42,10 @@ public class SearchController {
 		if (!authinticationKey.equals(key)) {
 			throw new authorityException("Security exception, the key is invalid!");
 		}
+		text.replaceAll("[^a-zA-Z0-9\\s+]", "");
 		URL url;
 		try {
-			url = new URL(elasticSearchHost + text);
+			url = new URL(elasticSearchHost + text.replaceAll(" ", "%20"));
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));

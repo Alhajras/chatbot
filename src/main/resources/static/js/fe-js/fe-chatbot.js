@@ -43,12 +43,12 @@ var vue_det = new Vue({
 					var currentTime = currentDate.getHours() + ":"
 							+ currentDate.getMinutes();
 					var robotResponse = {
-						message : e,
+						message : 'Please, take a look at this link: ',
 						time : currentTime,
-						robotResponse : true
+						robotResponse : true,
+						url : e,
 					};
 					self.robotMessages.push(robotResponse);
-					console.log(e);
 				},
 				error : function() {
 
