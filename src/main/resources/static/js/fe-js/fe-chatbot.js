@@ -22,7 +22,41 @@ var vue_det = new Vue(
 				},
 
 				sendMessage : function() {
-					var obj = {"took":3,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":2,"max_score":0.99224496,"hits":[{"_index":"articles","_type":"_doc","_id":"2","_score":0.99224496,"_source":{"url":"https://www.haw-hamburg.de/","data":"what is this ??? ha, project"}},{"_index":"articles","_type":"_doc","_id":"1","_score":0.2876821,"_source":{"url":"https://www.haw-hamburg.de/","data":"hamburg university of applied science, elective project 1 , chatbot"}}]}};
+					var obj = {
+						"took" : 3,
+						"timed_out" : false,
+						"_shards" : {
+							"total" : 5,
+							"successful" : 5,
+							"skipped" : 0,
+							"failed" : 0
+						},
+						"hits" : {
+							"total" : 2,
+							"max_score" : 0.99224496,
+							"hits" : [
+									{
+										"_index" : "articles",
+										"_type" : "_doc",
+										"_id" : "2",
+										"_score" : 0.99224496,
+										"_source" : {
+											"url" : "https://www.haw-hamburg.de/",
+											"data" : "what is this ??? ha, project"
+										}
+									},
+									{
+										"_index" : "articles",
+										"_type" : "_doc",
+										"_id" : "1",
+										"_score" : 0.2876821,
+										"_source" : {
+											"url" : "https://www.haw-hamburg.de/",
+											"data" : "hamburg university of applied science, elective project 1 , chatbot"
+										}
+									} ]
+						}
+					};
 					console.log(obj);
 					var self = this;
 					var text = document.getElementById("btn-input").value;
@@ -63,8 +97,17 @@ var vue_det = new Vue(
 							var currentDate = new Date();
 							var currentTime = currentDate.getHours() + ":"
 									+ currentDate.getMinutes();
+
+							var number = Math.floor((Math.random() * 100) + 1);
+							var text = ''
+							if (number % 2 == 0) {
+								text = 'I hope this link will help you out: ';
+							} else {
+								text = 'Please, take a look at this link: ';
+							}
+
 							var robotResponse = {
-								message : 'Please, take a look at this link: ',
+								message : text,
 								time : currentTime,
 								robotResponse : true,
 								url : e,
