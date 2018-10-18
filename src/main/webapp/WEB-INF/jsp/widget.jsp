@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link type="text/css"
@@ -22,10 +22,12 @@
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
-	<!-- this is for a demo only -->
-	<!-- 	<iframe src="https://www.haw-hamburg.de/startseite.html" -->
-	<!-- 		style="width: 1800px; height: 1500px;"></iframe> -->
-	<!-- 		end of the demo -->
+	<!-- 	this is for a demo only -->
+	<iframe th:if="${demo == true}"
+		src="https://www.haw-hamburg.de/startseite.html"
+		style="width: 1800px; height: 1500px;"></iframe>
+	<!-- 	end of the demo -->
+	<%-- 	<div>Web Application. Passed parameter : th:text="${demo}"</div> --%>
 	<div id="chatbot-div">
 		<div v-if="!iconMode">
 			<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1"
@@ -46,7 +48,7 @@
 									data-id="chat_window_1"></span></a>
 							</div>
 						</div>
-						<div id = "chat_window" class="panel-body msg_container_base">
+						<div id="chat_window" class="panel-body msg_container_base">
 							<div v-for="(email, index) in robotMessages">
 								<div v-if="!email.robotResponse"
 									class="row msg_container base_sent">
