@@ -6,7 +6,6 @@
 
 package com.application.controllers;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
@@ -16,16 +15,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.exceptions.authorityException;
-import com.application.model.Article;
-import com.application.services.ArticleServiceImpl;
 
 @RestController
 public class SearchController {
@@ -64,8 +60,8 @@ public class SearchController {
 				obj = new JSONObject(objString);
 				obj = new JSONObject(obj.getJSONObject("_source").toString());
 				System.out.println(obj);
-				URL = obj.toString().split("data\":\"")[1].split("url\":\"")[1].replaceAll("\\\\", "").replaceAll("}",
-						"");
+				URL = obj.toString().split("data\":\"")[1].split("url\":\"")[1].replaceAll("\\\\", "")
+						.replaceAll("}", "").replaceAll("\"", "");
 			}
 
 //						.split("\"url\":\"")[1].split("\\\",\"data\"")[0];
